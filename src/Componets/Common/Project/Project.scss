@@ -1,0 +1,87 @@
+@import '../../../assets/css/common.scss';
+
+.projectBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  & > div {
+    flex: 1 0 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .projectDesc {
+      width: 100%;
+      margin: 20px;
+      position: relative;
+
+      & img {
+        width: 100%;
+      }
+
+      & .projectDetail {
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: get_color(black);
+        opacity: 0.6;
+        padding: 10px;
+
+        & h2 {
+          font-size: 12px;
+          color: get_color(white);
+          line-height: 12px;
+        }
+
+        & p {
+          font-size: 10px;
+          color: get_color(white);
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+
+.projectDescBox {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  & > div {
+    flex: 1 0 50%;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: $breakpoint-tablet) {
+      flex: 1 0 100%;
+    }
+
+    & .images {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      & > div {
+        flex: 1 0 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: $breakpoint-tablet) {
+          flex: 1 0 100%;
+        }
+
+        & img {
+          @media (min-width: $breakpoint-tablet) {
+            height: 100px;
+          }
+          @media (max-width: $breakpoint-tablet) {
+            min-height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
