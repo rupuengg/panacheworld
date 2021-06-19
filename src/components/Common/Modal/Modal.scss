@@ -1,0 +1,57 @@
+@import '../../../assets/css/common.scss';
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  & .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: get_color(black);
+    height: 100vh;
+    opacity: 0.3;
+    z-index: 10;
+  }
+
+  & .container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 11;
+    height: 100vh;
+
+    & .containerBox {
+      display: block;
+      width: 100%;
+      box-shadow: 0 2px 4px 0 #000000;
+      margin: 50px auto 0;
+      background-color: get_color(white);
+
+      & .header {
+        display: block;
+        background-color: get_color(white_font_color_light);
+        padding: 10px 20px;
+        color: get_color(white);
+        font-size: 14px;
+        font-weight: 500;
+        position: relative;
+
+        & .close {
+          position: absolute;
+          right: 20px;
+          cursor: pointer;
+        }
+      }
+
+      & .inner {
+        display: block;
+        padding: 20px;
+      }
+    }
+  }
+}

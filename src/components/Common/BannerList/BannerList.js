@@ -7,13 +7,17 @@ const BannerList = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
+    let timer1 = setTimeout(() => {
       let newIndex = activeIndex + 1;
       if (newIndex >= banners.length) {
         newIndex = 0;
       }
       setActiveIndex(newIndex);
     }, 2000);
+
+    return () => {
+      clearTimeout(timer1);
+    };
   });
 
   return (
