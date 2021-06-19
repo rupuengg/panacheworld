@@ -53,6 +53,7 @@ const Offer = ({ offer }) => {
   return (
     <figure className="offer">
       {getHeader()}
+      <div className="clear"></div>
       <aside>
         <div className="w-full">
           <aside className="flex">

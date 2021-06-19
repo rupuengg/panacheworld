@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import './Header.scss';
 import Logo from '../Logo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,77 +7,8 @@ import { Link } from "react-router-dom";
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-const menuItems = [
-  {
-    title: 'Home',
-    link: '/home',
-    scrollTo: '',
-    items: []
-  },
-  {
-    title: 'About',
-    link: '/about',
-    scrollTo: '',
-    items: []
-  },
-  {
-    title: 'Services',
-    link: '/services',
-    scrollTo: '',
-    items: [
-      {
-        title: 'All Services',
-        link: '/services/all',
-        scrollTo: '',
-        items: []
-      },
-      {
-        title: 'Residences interiors',
-        link: '/services/residences',
-        scrollTo: '',
-        items: []
-      },
-      {
-        title: 'Recreation Interiors',
-        link: '/services/recreation',
-        scrollTo: '',
-        items: []
-      },
-      {
-        title: 'Modular kitchen',
-        link: '/services/modularkitchen',
-        scrollTo: '',
-        items: []
-      },
-      {
-        title: 'living room interiors',
-        link: '/services/livingroom',
-        scrollTo: '',
-        items: []
-      },
-    ]
-  },
-  {
-    title: 'Location',
-    link: '/location',
-    scrollTo: '',
-    items: []
-  },
-  {
-    title: 'Projects',
-    link: '/projects',
-    scrollTo: '',
-    items: []
-  },
-  {
-    title: 'Contact',
-    link: '/contact',
-    scrollTo: '',
-    items: []
-  }
-];
-
-const Header = () => {
+const Header = (props) => {
+  const { navigation } = props;
   const [isShowSubMenu, setIsShowSubMenu] = useState(false);
 
   const makeMenu = (items, parentIndex = 0) => {
@@ -117,7 +49,7 @@ const Header = () => {
                   </button>
                 </div>
                 <ul className={`navigation ${isShowSubMenu ? 'open' : ''}`}>
-                  {makeMenu(menuItems)}
+                  {makeMenu(navigation)}
                 </ul>
                 <div className="clear"></div>
               </nav>
@@ -129,4 +61,8 @@ const Header = () => {
   );
 }
 
-export default Header;
+const mapStateToProps = (store) => ({
+  navigation: store.globalReducer.navigationMenu,
+});
+
+export default connect(mapStateToProps)(Header);

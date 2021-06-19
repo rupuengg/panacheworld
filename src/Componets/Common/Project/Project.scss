@@ -73,7 +73,14 @@
           flex: 1 0 100%;
         }
 
+        & .projectDesc {
+          box-shadow: 3px 3px 4px 3px get_color(white_font_color_light);
+          cursor: pointer;
+        }
+
         & img {
+          display: block;
+
           @media (min-width: $breakpoint-tablet) {
             height: 100px;
           }

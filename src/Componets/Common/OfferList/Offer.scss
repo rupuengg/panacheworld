@@ -5,6 +5,7 @@
     display: flex;
     position: relative;
     flex-wrap: wrap;
+    margin: 0;
 
     & > section, & > figcaption {
       width: 100%;
@@ -25,10 +26,6 @@
       margin-top: 50px;
     }
 
-    &:last-child aside {
-      margin-bottom: 0;
-    }
-  
     & aside .flex nav {
       width: 48%;
     }
@@ -48,28 +45,51 @@
   .offer {
     display: block;
     position: relative;
-  }
+    flex: 1 1 50%;
+    margin: 0;
 
-  .offer > section, .offer > figcaption {
-    width: 50%;
-    float: left;
-  }
+    &:first-child {
+      padding-right: 20px;
 
-  .offer aside .w-full {
-    width: 100%;
-  }
+      & > aside {
+        margin: 50px 0;
+      }
+    }
 
-  .offer > aside {
-    height: 420px;
-    box-shadow: 0 2px 4px 0 #000000;
-    background-color: #ffffff;
-    padding: 2.5rem;
-    padding-bottom: 0;
-    display: inline-flex;
-  }
+    &:last-child {
+      padding-left: 20px;
 
-  .offer aside .flex nav, .offer aside .flex section {
-    width: 50%;
+      & > aside {
+        margin: 50px 0;
+      }
+    }
+
+    & > section, .offer > figcaption {
+      width: 50%;
+      float: left;
+    }
+  
+    & > aside .w-full {
+      width: 100%;
+    }
+
+    & > .clear {
+      clear: both;
+    }
+  
+    & > aside {
+      height: 420px;
+      box-shadow: 0 2px 4px 0 #000000;
+      background-color: #ffffff;
+      padding: 2.5rem;
+      padding-bottom: 0;
+      display: block;
+    }
+  
+    & aside .flex nav, 
+    & aside .flex section {
+      width: 50%;
+    }
   }
 }
 

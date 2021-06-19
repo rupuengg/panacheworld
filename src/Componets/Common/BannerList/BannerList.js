@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import './BannerList.scss';
-import banner1 from '../../../assets/images/banner/banner1.jpg';
-import banner2 from '../../../assets/images/banner/banner2.jpg';
-import banner3 from '../../../assets/images/banner/banner3.jpg';
-import banner4 from '../../../assets/images/banner/banner4.jpg';
-import banner5 from '../../../assets/images/banner/banner5.jpg';
 
-const BannerList = () => {
+const BannerList = (props) => {
+  const { banners } = props;
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -18,20 +15,6 @@ const BannerList = () => {
       setActiveIndex(newIndex);
     }, 2000);
   });
-
-  const banners = [
-    {
-      img: banner1,
-    }, {
-      img: banner2,
-    }, {
-      img: banner3,
-    }, {
-      img: banner4,
-    }, {
-      img: banner5,
-    }
-  ];
 
   return (
     <div className="bannerBox">
@@ -52,4 +35,8 @@ const BannerList = () => {
   );
 }
 
-export default BannerList;
+const mapStateToProps = (store) => ({
+  banners: store.bannerReducer.bannerList,
+});
+
+export default connect(mapStateToProps)(BannerList);

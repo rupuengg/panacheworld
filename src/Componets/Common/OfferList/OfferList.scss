@@ -10,32 +10,5 @@
     @media (max-width: $breakpoint-tablet) {
       flex-direction: column;
     }
-
-    & > figure {
-      flex: 1 1 100%;
-      margin: 0;
-    }
-  }
-
-  @media (min-width: $breakpoint-tablet) {
-    & .article > figure {
-      flex: 1 0 50%;
-
-      &:first-child {
-        padding-right: 20px;
-      }
-
-      &:last-child {
-        padding-left: 20px;
-      }
-    }
-
-    & .article > figure:first-child > aside {
-      margin: 50px 0;
-    }
-    
-    & .article > figure:last-child > aside {
-      margin: 50px 0;
-    }
   }
 }
