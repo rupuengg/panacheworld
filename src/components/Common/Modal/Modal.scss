@@ -32,9 +32,13 @@
       margin: 50px auto 0;
       background-color: get_color(white);
 
+      @media (max-width: $breakpoint-tablet) {
+        width: 90% !important;
+      }
+
       & .header {
         display: block;
-        background-color: get_color(white_font_color_light);
+        background-color: get_color(white_font_color);
         padding: 10px 20px;
         color: get_color(white);
         font-size: 14px;

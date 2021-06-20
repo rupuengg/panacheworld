@@ -14,7 +14,7 @@ const Header = (props) => {
   const makeMenu = (items, parentIndex = 0) => {
     return items.map((item, index) => (
       <li key={`${parentIndex === 0 ? 'mainMenu-' : 'subMenu'}parentIndex - ${index}`}>
-        <Link to={item.link} onClick={() => setIsShowSubMenu(false)}>{item.title}</Link>
+        <Link to={item.link} className="" onClick={() => setIsShowSubMenu(false)}>{item.title}</Link>
         {item.items && (
           <ul>
             {makeMenu(item.items, index)}
@@ -49,7 +49,7 @@ const Header = (props) => {
                   </button>
                 </div>
                 <ul className={`navigation ${isShowSubMenu ? 'open' : ''}`}>
-                  {makeMenu(navigation)}
+                  {makeMenu(navigation, 0)}
                 </ul>
                 <div className="clear"></div>
               </nav>

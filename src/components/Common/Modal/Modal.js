@@ -19,7 +19,7 @@ const Modal = (props) => {
       <div className="container">
         <div className="containerBox" style={style}>
           <div className="header">
-            {title || ""}
+            <span>{title || ""}</span>
             <span className="close" onClick={() => { setIsOpen(!isOpen) }}><FontAwesomeIcon icon={faTimesCircle} /></span>
           </div>
           <div className="inner">{content}</div>

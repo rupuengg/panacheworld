@@ -70,7 +70,9 @@
       z-index: 1;
       background-color: get_color(black);
       padding: 10px;
-      height: 100vh;
+      height: 80px;
+      opacity: 0.7;
+      cursor: pointer;
 
       &.left {
         left: 0;
@@ -90,10 +92,12 @@
     & ul {
       display: block;
       width: 1500px;
+      height: 100px;
   
       & li {
         display: inline-block;
         margin-right: 10px;
+        height: 100px;
 
         &:last-child {
           margin-right: 0;

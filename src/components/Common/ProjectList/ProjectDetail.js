@@ -8,22 +8,21 @@ import './ProjectDetail.scss';
 const ProjectDetail = (props) => {
   const { projects } = props;
   const [isOpen, setIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
   const proj = projects.find(p => p.project_id === props.match.params.id);
 
   const handleModal = (currentImg) => {
     setIsOpen(true);
-    setCurrentImage(currentImg);
-    console.log(proj.designer_images, currentImg);
+    setCurrentIndex(proj.designer_images.findIndex(img => img === currentImg));
   };
 
   const getModalContent = () => (
     <div className="imgModal">
       <div className="current">
-        <img src={currentImage} alt="" />
+        <img src={proj.designer_images[currentIndex]} alt="" />
       </div>
       <div className="list">
-        <div className="left"><FontAwesomeIcon icon={faAngleLeft} /></div>
+        <div className="left" onClick={() => { setCurrentIndex(currentIndex === 0 ? proj.designer_images.length - 1 : currentIndex - 1) }}><FontAwesomeIcon icon={faAngleLeft} /></div>
         <ul className="p0 m0 list">
           {proj.designer_images.map((img, index) => (
             <li className="p0 m0" key={index}>
@@ -31,9 +30,9 @@ const ProjectDetail = (props) => {
             </li>
           ))}
         </ul>
-        <div className="right"><FontAwesomeIcon icon={faAngleRight} /></div>
+        <div className="right" onClick={() => { setCurrentIndex(proj.designer_images.length - 1 > currentIndex ? currentIndex + 1 : 0) }}><FontAwesomeIcon icon={faAngleRight} /></div>
       </div>
-    </div>
+    </div >
   );
 
   return (
@@ -60,7 +59,7 @@ const ProjectDetail = (props) => {
           <div>&nbsp;</div>
         </div>
       </div>
-      <Modal isOpen={isOpen} width="40%" fromTop="10px" title="Header" setIsOpen={setIsOpen} content={getModalContent()} />
+      <Modal isOpen={isOpen} width="40%" fromTop="10px" title="Project first images" setIsOpen={setIsOpen} content={getModalContent()} />
     </>
   );
 }

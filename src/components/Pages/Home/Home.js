@@ -18,7 +18,7 @@ const Home = () => {
           <h1>All Projects</h1>
           <ul className="p0 m0">
             <li className="p0 m0">
-              <Link to="/projects/11">
+              <Link to="/projects/1">
                 <img src={project1d1} alt="" />
               </Link>
             </li>
